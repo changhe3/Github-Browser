@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.github.vicpinm:krealmextensions-1.1.5">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/krealmextensions-1.1.5.aar/e5c810c269e6c8ec3f9bb2a254e331bb/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/krealmextensions-1.1.5.aar/e5c810c269e6c8ec3f9bb2a254e331bb/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.vicpinm/krealmextensions/1.1.5/e6cb81c073f826d86dd0b8dfedb423f023326421/krealmextensions-1.1.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

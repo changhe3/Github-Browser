@@ -1,0 +1,1388 @@
+{
+	"operations": [
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "User",
+			"operationType": "query",
+			"rootType": "Query",
+			"variables": [
+				{
+					"name": "login",
+					"type": "String!"
+				}
+			],
+			"source": "query User($login: String!) {\n  user(login: $login) {\n    __typename\n    name\n    avatarUrl\n    login\n    bio\n    email\n    followers {\n      __typename\n      totalCount\n    }\n    following {\n      __typename\n      totalCount\n    }\n    repositories {\n      __typename\n      totalCount\n    }\n  }\n}",
+			"fields": [
+				{
+					"responseName": "user",
+					"fieldName": "user",
+					"type": "User",
+					"args": [
+						{
+							"name": "login",
+							"value": {
+								"kind": "Variable",
+								"variableName": "login"
+							}
+						}
+					],
+					"isConditional": false,
+					"description": "Lookup a user by login.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						},
+						{
+							"responseName": "name",
+							"fieldName": "name",
+							"type": "String",
+							"isConditional": false,
+							"description": "The user's public profile name.",
+							"isDeprecated": false,
+							"deprecationReason": null
+						},
+						{
+							"responseName": "avatarUrl",
+							"fieldName": "avatarUrl",
+							"type": "URI!",
+							"isConditional": false,
+							"description": "A URL pointing to the user's public avatar.",
+							"isDeprecated": false,
+							"deprecationReason": null
+						},
+						{
+							"responseName": "login",
+							"fieldName": "login",
+							"type": "String!",
+							"isConditional": false,
+							"description": "The username used to login.",
+							"isDeprecated": false,
+							"deprecationReason": null
+						},
+						{
+							"responseName": "bio",
+							"fieldName": "bio",
+							"type": "String",
+							"isConditional": false,
+							"description": "The user's public profile bio.",
+							"isDeprecated": false,
+							"deprecationReason": null
+						},
+						{
+							"responseName": "email",
+							"fieldName": "email",
+							"type": "String!",
+							"isConditional": false,
+							"description": "The user's publicly visible profile email.",
+							"isDeprecated": false,
+							"deprecationReason": null
+						},
+						{
+							"responseName": "followers",
+							"fieldName": "followers",
+							"type": "FollowerConnection!",
+							"isConditional": false,
+							"description": "A list of users the given user is followed by.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "totalCount",
+									"fieldName": "totalCount",
+									"type": "Int!",
+									"isConditional": false,
+									"description": "Identifies the total count of items in the connection.",
+									"isDeprecated": false,
+									"deprecationReason": null
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": []
+						},
+						{
+							"responseName": "following",
+							"fieldName": "following",
+							"type": "FollowingConnection!",
+							"isConditional": false,
+							"description": "A list of users the given user is following.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "totalCount",
+									"fieldName": "totalCount",
+									"type": "Int!",
+									"isConditional": false,
+									"description": "Identifies the total count of items in the connection.",
+									"isDeprecated": false,
+									"deprecationReason": null
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": []
+						},
+						{
+							"responseName": "repositories",
+							"fieldName": "repositories",
+							"type": "RepositoryConnection!",
+							"isConditional": false,
+							"description": "A list of repositories that the user owns.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "totalCount",
+									"fieldName": "totalCount",
+									"type": "Int!",
+									"isConditional": false,
+									"description": "Identifies the total count of items in the connection.",
+									"isDeprecated": false,
+									"deprecationReason": null
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": []
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": []
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [],
+			"sourceWithFragments": "query User($login: String!) {\n  user(login: $login) {\n    __typename\n    name\n    avatarUrl\n    login\n    bio\n    email\n    followers {\n      __typename\n      totalCount\n    }\n    following {\n      __typename\n      totalCount\n    }\n    repositories {\n      __typename\n      totalCount\n    }\n  }\n}",
+			"operationId": "320a78575878bc120760da2d292a607baebb856c2bf33742db524b167c372361"
+		},
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "Repos",
+			"operationType": "query",
+			"rootType": "Query",
+			"variables": [
+				{
+					"name": "login",
+					"type": "String!"
+				},
+				{
+					"name": "first",
+					"type": "Int!"
+				},
+				{
+					"name": "after",
+					"type": "String"
+				},
+				{
+					"name": "order",
+					"type": "RepositoryOrder"
+				}
+			],
+			"source": "query Repos($login: String!, $first: Int!, $after: String, $order: RepositoryOrder) {\n  user(login: $login) {\n    __typename\n    repositories(first: $first, after: $after, orderBy: $order) {\n      __typename\n      totalCount\n      pageInfo {\n        __typename\n        ...PageInfoQuery\n      }\n      nodes {\n        __typename\n        ...RepoItemQuery\n      }\n    }\n  }\n}",
+			"fields": [
+				{
+					"responseName": "user",
+					"fieldName": "user",
+					"type": "User",
+					"args": [
+						{
+							"name": "login",
+							"value": {
+								"kind": "Variable",
+								"variableName": "login"
+							}
+						}
+					],
+					"isConditional": false,
+					"description": "Lookup a user by login.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						},
+						{
+							"responseName": "repositories",
+							"fieldName": "repositories",
+							"type": "RepositoryConnection!",
+							"args": [
+								{
+									"name": "first",
+									"value": {
+										"kind": "Variable",
+										"variableName": "first"
+									}
+								},
+								{
+									"name": "after",
+									"value": {
+										"kind": "Variable",
+										"variableName": "after"
+									}
+								},
+								{
+									"name": "orderBy",
+									"value": {
+										"kind": "Variable",
+										"variableName": "order"
+									}
+								}
+							],
+							"isConditional": false,
+							"description": "A list of repositories that the user owns.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "totalCount",
+									"fieldName": "totalCount",
+									"type": "Int!",
+									"isConditional": false,
+									"description": "Identifies the total count of items in the connection.",
+									"isDeprecated": false,
+									"deprecationReason": null
+								},
+								{
+									"responseName": "pageInfo",
+									"fieldName": "pageInfo",
+									"type": "PageInfo!",
+									"isConditional": false,
+									"description": "Information to aid in pagination.",
+									"isDeprecated": false,
+									"deprecationReason": null,
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										}
+									],
+									"fragmentSpreads": [
+										"PageInfoQuery"
+									],
+									"inlineFragments": []
+								},
+								{
+									"responseName": "nodes",
+									"fieldName": "nodes",
+									"type": "[Repository]",
+									"isConditional": false,
+									"description": "A list of nodes.",
+									"isDeprecated": false,
+									"deprecationReason": null,
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										}
+									],
+									"fragmentSpreads": [
+										"RepoItemQuery"
+									],
+									"inlineFragments": []
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": []
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": []
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [
+				"PageInfoQuery",
+				"RepoItemQuery"
+			],
+			"sourceWithFragments": "query Repos($login: String!, $first: Int!, $after: String, $order: RepositoryOrder) {\n  user(login: $login) {\n    __typename\n    repositories(first: $first, after: $after, orderBy: $order) {\n      __typename\n      totalCount\n      pageInfo {\n        __typename\n        ...PageInfoQuery\n      }\n      nodes {\n        __typename\n        ...RepoItemQuery\n      }\n    }\n  }\n}\nfragment PageInfoQuery on PageInfo {\n  __typename\n  hasNextPage\n  endCursor\n}\nfragment RepoItemQuery on Repository {\n  __typename\n  nameWithOwner\n  url\n  viewerHasStarred\n  id\n}",
+			"operationId": "e66b87bb6d8a0d47db3bed66548d9ba71d1745aeef4da55d14a2c28e0018f85a"
+		},
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "Followers",
+			"operationType": "query",
+			"rootType": "Query",
+			"variables": [
+				{
+					"name": "login",
+					"type": "String!"
+				},
+				{
+					"name": "first",
+					"type": "Int!"
+				},
+				{
+					"name": "after",
+					"type": "String"
+				}
+			],
+			"source": "query Followers($login: String!, $first: Int!, $after: String) {\n  user(login: $login) {\n    __typename\n    followers(first: $first, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoQuery\n      }\n      nodes {\n        __typename\n        ...UserListItemQuery\n      }\n    }\n  }\n}",
+			"fields": [
+				{
+					"responseName": "user",
+					"fieldName": "user",
+					"type": "User",
+					"args": [
+						{
+							"name": "login",
+							"value": {
+								"kind": "Variable",
+								"variableName": "login"
+							}
+						}
+					],
+					"isConditional": false,
+					"description": "Lookup a user by login.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						},
+						{
+							"responseName": "followers",
+							"fieldName": "followers",
+							"type": "FollowerConnection!",
+							"args": [
+								{
+									"name": "first",
+									"value": {
+										"kind": "Variable",
+										"variableName": "first"
+									}
+								},
+								{
+									"name": "after",
+									"value": {
+										"kind": "Variable",
+										"variableName": "after"
+									}
+								}
+							],
+							"isConditional": false,
+							"description": "A list of users the given user is followed by.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "pageInfo",
+									"fieldName": "pageInfo",
+									"type": "PageInfo!",
+									"isConditional": false,
+									"description": "Information to aid in pagination.",
+									"isDeprecated": false,
+									"deprecationReason": null,
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										}
+									],
+									"fragmentSpreads": [
+										"PageInfoQuery"
+									],
+									"inlineFragments": []
+								},
+								{
+									"responseName": "nodes",
+									"fieldName": "nodes",
+									"type": "[User]",
+									"isConditional": false,
+									"description": "A list of nodes.",
+									"isDeprecated": false,
+									"deprecationReason": null,
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										}
+									],
+									"fragmentSpreads": [
+										"UserListItemQuery"
+									],
+									"inlineFragments": []
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": []
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": []
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [
+				"PageInfoQuery",
+				"UserListItemQuery"
+			],
+			"sourceWithFragments": "query Followers($login: String!, $first: Int!, $after: String) {\n  user(login: $login) {\n    __typename\n    followers(first: $first, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoQuery\n      }\n      nodes {\n        __typename\n        ...UserListItemQuery\n      }\n    }\n  }\n}\nfragment PageInfoQuery on PageInfo {\n  __typename\n  hasNextPage\n  endCursor\n}\nfragment UserListItemQuery on User {\n  __typename\n  login\n  avatarUrl\n}",
+			"operationId": "1d2e4140fd4a0614b1283f1cdbf5b9a4b4ee03d8ddb3e0143ee22a57245a5fad"
+		},
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "Following",
+			"operationType": "query",
+			"rootType": "Query",
+			"variables": [
+				{
+					"name": "login",
+					"type": "String!"
+				},
+				{
+					"name": "first",
+					"type": "Int!"
+				},
+				{
+					"name": "after",
+					"type": "String"
+				}
+			],
+			"source": "query Following($login: String!, $first: Int!, $after: String) {\n  user(login: $login) {\n    __typename\n    following(first: $first, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoQuery\n      }\n      nodes {\n        __typename\n        ...UserListItemQuery\n      }\n    }\n  }\n}",
+			"fields": [
+				{
+					"responseName": "user",
+					"fieldName": "user",
+					"type": "User",
+					"args": [
+						{
+							"name": "login",
+							"value": {
+								"kind": "Variable",
+								"variableName": "login"
+							}
+						}
+					],
+					"isConditional": false,
+					"description": "Lookup a user by login.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						},
+						{
+							"responseName": "following",
+							"fieldName": "following",
+							"type": "FollowingConnection!",
+							"args": [
+								{
+									"name": "first",
+									"value": {
+										"kind": "Variable",
+										"variableName": "first"
+									}
+								},
+								{
+									"name": "after",
+									"value": {
+										"kind": "Variable",
+										"variableName": "after"
+									}
+								}
+							],
+							"isConditional": false,
+							"description": "A list of users the given user is following.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "pageInfo",
+									"fieldName": "pageInfo",
+									"type": "PageInfo!",
+									"isConditional": false,
+									"description": "Information to aid in pagination.",
+									"isDeprecated": false,
+									"deprecationReason": null,
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										}
+									],
+									"fragmentSpreads": [
+										"PageInfoQuery"
+									],
+									"inlineFragments": []
+								},
+								{
+									"responseName": "nodes",
+									"fieldName": "nodes",
+									"type": "[User]",
+									"isConditional": false,
+									"description": "A list of nodes.",
+									"isDeprecated": false,
+									"deprecationReason": null,
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										}
+									],
+									"fragmentSpreads": [
+										"UserListItemQuery"
+									],
+									"inlineFragments": []
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": []
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": []
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [
+				"PageInfoQuery",
+				"UserListItemQuery"
+			],
+			"sourceWithFragments": "query Following($login: String!, $first: Int!, $after: String) {\n  user(login: $login) {\n    __typename\n    following(first: $first, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoQuery\n      }\n      nodes {\n        __typename\n        ...UserListItemQuery\n      }\n    }\n  }\n}\nfragment PageInfoQuery on PageInfo {\n  __typename\n  hasNextPage\n  endCursor\n}\nfragment UserListItemQuery on User {\n  __typename\n  login\n  avatarUrl\n}",
+			"operationId": "f37879408a84c74fcbce178403fa206b7b0929fe6237be27cf70da04ffbf70d6"
+		},
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "Search",
+			"operationType": "query",
+			"rootType": "Query",
+			"variables": [
+				{
+					"name": "str",
+					"type": "String!"
+				},
+				{
+					"name": "first",
+					"type": "Int!"
+				},
+				{
+					"name": "after",
+					"type": "String"
+				},
+				{
+					"name": "type",
+					"type": "SearchType!"
+				}
+			],
+			"source": "query Search($str: String!, $first: Int!, $after: String, $type: SearchType!) {\n  search(query: $str, first: $first, after: $after, type: $type) {\n    __typename\n    pageInfo {\n      __typename\n      ...PageInfoQuery\n    }\n    nodes {\n      __typename\n      ... on Repository {\n        ...RepoItemQuery\n      }\n      ... on User {\n        ...UserListItemQuery\n      }\n    }\n  }\n}",
+			"fields": [
+				{
+					"responseName": "search",
+					"fieldName": "search",
+					"type": "SearchResultItemConnection!",
+					"args": [
+						{
+							"name": "query",
+							"value": {
+								"kind": "Variable",
+								"variableName": "str"
+							}
+						},
+						{
+							"name": "first",
+							"value": {
+								"kind": "Variable",
+								"variableName": "first"
+							}
+						},
+						{
+							"name": "after",
+							"value": {
+								"kind": "Variable",
+								"variableName": "after"
+							}
+						},
+						{
+							"name": "type",
+							"value": {
+								"kind": "Variable",
+								"variableName": "type"
+							}
+						}
+					],
+					"isConditional": false,
+					"description": "Perform a search across resources.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						},
+						{
+							"responseName": "pageInfo",
+							"fieldName": "pageInfo",
+							"type": "PageInfo!",
+							"isConditional": false,
+							"description": "Information to aid in pagination.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								}
+							],
+							"fragmentSpreads": [
+								"PageInfoQuery"
+							],
+							"inlineFragments": []
+						},
+						{
+							"responseName": "nodes",
+							"fieldName": "nodes",
+							"type": "[SearchResultItem]",
+							"isConditional": false,
+							"description": "A list of nodes.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": [
+								{
+									"typeCondition": "Repository",
+									"possibleTypes": [
+										"Repository"
+									],
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										}
+									],
+									"fragmentSpreads": [
+										"RepoItemQuery"
+									]
+								},
+								{
+									"typeCondition": "User",
+									"possibleTypes": [
+										"User"
+									],
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										}
+									],
+									"fragmentSpreads": [
+										"UserListItemQuery"
+									]
+								}
+							]
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": []
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [
+				"PageInfoQuery",
+				"RepoItemQuery",
+				"UserListItemQuery"
+			],
+			"sourceWithFragments": "query Search($str: String!, $first: Int!, $after: String, $type: SearchType!) {\n  search(query: $str, first: $first, after: $after, type: $type) {\n    __typename\n    pageInfo {\n      __typename\n      ...PageInfoQuery\n    }\n    nodes {\n      __typename\n      ... on Repository {\n        ...RepoItemQuery\n      }\n      ... on User {\n        ...UserListItemQuery\n      }\n    }\n  }\n}\nfragment PageInfoQuery on PageInfo {\n  __typename\n  hasNextPage\n  endCursor\n}\nfragment RepoItemQuery on Repository {\n  __typename\n  nameWithOwner\n  url\n  viewerHasStarred\n  id\n}\nfragment UserListItemQuery on User {\n  __typename\n  login\n  avatarUrl\n}",
+			"operationId": "953d8e591f8e49eaf8d01965f056b41303a0f9d9aea2f304ba76eea3e6fd7531"
+		},
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "Language",
+			"operationType": "query",
+			"rootType": "Query",
+			"variables": [
+				{
+					"name": "repoId",
+					"type": "ID!"
+				}
+			],
+			"source": "query Language($repoId: ID!) {\n  node(id: $repoId) {\n    __typename\n    ... on Repository {\n      languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {\n        __typename\n        totalSize\n        edges {\n          __typename\n          size\n          node {\n            __typename\n            color\n            name\n          }\n        }\n      }\n    }\n  }\n}",
+			"fields": [
+				{
+					"responseName": "node",
+					"fieldName": "node",
+					"type": "Node",
+					"args": [
+						{
+							"name": "id",
+							"value": {
+								"kind": "Variable",
+								"variableName": "repoId"
+							}
+						}
+					],
+					"isConditional": false,
+					"description": "Fetches an object given its ID.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": [
+						{
+							"typeCondition": "Repository",
+							"possibleTypes": [
+								"Repository"
+							],
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "languages",
+									"fieldName": "languages",
+									"type": "LanguageConnection",
+									"args": [
+										{
+											"name": "first",
+											"value": 10
+										},
+										{
+											"name": "orderBy",
+											"value": {
+												"field": "SIZE",
+												"direction": "DESC"
+											}
+										}
+									],
+									"isConditional": false,
+									"description": "A list containing a breakdown of the language composition of the repository.",
+									"isDeprecated": false,
+									"deprecationReason": null,
+									"fields": [
+										{
+											"responseName": "__typename",
+											"fieldName": "__typename",
+											"type": "String!",
+											"isConditional": false
+										},
+										{
+											"responseName": "totalSize",
+											"fieldName": "totalSize",
+											"type": "Int!",
+											"isConditional": false,
+											"description": "The total size in bytes of files written in that language.",
+											"isDeprecated": false,
+											"deprecationReason": null
+										},
+										{
+											"responseName": "edges",
+											"fieldName": "edges",
+											"type": "[LanguageEdge]",
+											"isConditional": false,
+											"description": "A list of edges.",
+											"isDeprecated": false,
+											"deprecationReason": null,
+											"fields": [
+												{
+													"responseName": "__typename",
+													"fieldName": "__typename",
+													"type": "String!",
+													"isConditional": false
+												},
+												{
+													"responseName": "size",
+													"fieldName": "size",
+													"type": "Int!",
+													"isConditional": false,
+													"description": "The number of bytes of code written in the language.",
+													"isDeprecated": false,
+													"deprecationReason": null
+												},
+												{
+													"responseName": "node",
+													"fieldName": "node",
+													"type": "Language!",
+													"isConditional": false,
+													"isDeprecated": false,
+													"deprecationReason": null,
+													"fields": [
+														{
+															"responseName": "__typename",
+															"fieldName": "__typename",
+															"type": "String!",
+															"isConditional": false
+														},
+														{
+															"responseName": "color",
+															"fieldName": "color",
+															"type": "String",
+															"isConditional": false,
+															"description": "The color defined for the current language.",
+															"isDeprecated": false,
+															"deprecationReason": null
+														},
+														{
+															"responseName": "name",
+															"fieldName": "name",
+															"type": "String!",
+															"isConditional": false,
+															"description": "The name of the current language.",
+															"isDeprecated": false,
+															"deprecationReason": null
+														}
+													],
+													"fragmentSpreads": [],
+													"inlineFragments": []
+												}
+											],
+											"fragmentSpreads": [],
+											"inlineFragments": []
+										}
+									],
+									"fragmentSpreads": [],
+									"inlineFragments": []
+								}
+							],
+							"fragmentSpreads": []
+						}
+					]
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [],
+			"sourceWithFragments": "query Language($repoId: ID!) {\n  node(id: $repoId) {\n    __typename\n    ... on Repository {\n      languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {\n        __typename\n        totalSize\n        edges {\n          __typename\n          size\n          node {\n            __typename\n            color\n            name\n          }\n        }\n      }\n    }\n  }\n}",
+			"operationId": "65a6ed5a78c4591ca0979df7b6cb360a94190d6be09367893b418b679c5d7949"
+		},
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "Viewer",
+			"operationType": "query",
+			"rootType": "Query",
+			"variables": [],
+			"source": "query Viewer {\n  viewer {\n    __typename\n    login\n  }\n}",
+			"fields": [
+				{
+					"responseName": "viewer",
+					"fieldName": "viewer",
+					"type": "User!",
+					"isConditional": false,
+					"description": "The currently authenticated user.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						},
+						{
+							"responseName": "login",
+							"fieldName": "login",
+							"type": "String!",
+							"isConditional": false,
+							"description": "The username used to login.",
+							"isDeprecated": false,
+							"deprecationReason": null
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": []
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [],
+			"sourceWithFragments": "query Viewer {\n  viewer {\n    __typename\n    login\n  }\n}",
+			"operationId": "74236b880dc924773f52cab62f0f58d65185d64e30665ad9a97894181d7fbef5"
+		},
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "addStar",
+			"operationType": "mutation",
+			"rootType": "Mutation",
+			"variables": [
+				{
+					"name": "clientId",
+					"type": "String!"
+				},
+				{
+					"name": "starrableId",
+					"type": "ID!"
+				}
+			],
+			"source": "mutation addStar($clientId: String!, $starrableId: ID!) {\n  addStar(input: {clientMutationId: $clientId, starrableId: $starrableId}) {\n    __typename\n    starrable {\n      __typename\n      viewerHasStarred\n    }\n  }\n}",
+			"fields": [
+				{
+					"responseName": "addStar",
+					"fieldName": "addStar",
+					"type": "AddStarPayload",
+					"args": [
+						{
+							"name": "input",
+							"value": {
+								"clientMutationId": {
+									"kind": "Variable",
+									"variableName": "clientId"
+								},
+								"starrableId": {
+									"kind": "Variable",
+									"variableName": "starrableId"
+								}
+							}
+						}
+					],
+					"isConditional": false,
+					"description": "Adds a star to a Starrable.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						},
+						{
+							"responseName": "starrable",
+							"fieldName": "starrable",
+							"type": "Starrable!",
+							"isConditional": false,
+							"description": "The starrable.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "viewerHasStarred",
+									"fieldName": "viewerHasStarred",
+									"type": "Boolean!",
+									"isConditional": false,
+									"description": "Returns a boolean indicating whether the viewing user has starred this starrable.",
+									"isDeprecated": false,
+									"deprecationReason": null
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": []
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": []
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [],
+			"sourceWithFragments": "mutation addStar($clientId: String!, $starrableId: ID!) {\n  addStar(input: {clientMutationId: $clientId, starrableId: $starrableId}) {\n    __typename\n    starrable {\n      __typename\n      viewerHasStarred\n    }\n  }\n}",
+			"operationId": "27e8cb08fb1932e5865e4a4c10471b730be524bffe497ed4c19ccbfcd3d510dc"
+		},
+		{
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"operationName": "removeStar",
+			"operationType": "mutation",
+			"rootType": "Mutation",
+			"variables": [
+				{
+					"name": "clientId",
+					"type": "String!"
+				},
+				{
+					"name": "starrableId",
+					"type": "ID!"
+				}
+			],
+			"source": "mutation removeStar($clientId: String!, $starrableId: ID!) {\n  removeStar(input: {clientMutationId: $clientId, starrableId: $starrableId}) {\n    __typename\n    starrable {\n      __typename\n      viewerHasStarred\n    }\n  }\n}",
+			"fields": [
+				{
+					"responseName": "removeStar",
+					"fieldName": "removeStar",
+					"type": "RemoveStarPayload",
+					"args": [
+						{
+							"name": "input",
+							"value": {
+								"clientMutationId": {
+									"kind": "Variable",
+									"variableName": "clientId"
+								},
+								"starrableId": {
+									"kind": "Variable",
+									"variableName": "starrableId"
+								}
+							}
+						}
+					],
+					"isConditional": false,
+					"description": "Removes a star from a Starrable.",
+					"isDeprecated": false,
+					"deprecationReason": null,
+					"fields": [
+						{
+							"responseName": "__typename",
+							"fieldName": "__typename",
+							"type": "String!",
+							"isConditional": false
+						},
+						{
+							"responseName": "starrable",
+							"fieldName": "starrable",
+							"type": "Starrable!",
+							"isConditional": false,
+							"description": "The starrable.",
+							"isDeprecated": false,
+							"deprecationReason": null,
+							"fields": [
+								{
+									"responseName": "__typename",
+									"fieldName": "__typename",
+									"type": "String!",
+									"isConditional": false
+								},
+								{
+									"responseName": "viewerHasStarred",
+									"fieldName": "viewerHasStarred",
+									"type": "Boolean!",
+									"isConditional": false,
+									"description": "Returns a boolean indicating whether the viewing user has starred this starrable.",
+									"isDeprecated": false,
+									"deprecationReason": null
+								}
+							],
+							"fragmentSpreads": [],
+							"inlineFragments": []
+						}
+					],
+					"fragmentSpreads": [],
+					"inlineFragments": []
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": [],
+			"fragmentsReferenced": [],
+			"sourceWithFragments": "mutation removeStar($clientId: String!, $starrableId: ID!) {\n  removeStar(input: {clientMutationId: $clientId, starrableId: $starrableId}) {\n    __typename\n    starrable {\n      __typename\n      viewerHasStarred\n    }\n  }\n}",
+			"operationId": "daa04c3c8ff3176d7b4705ad90258209ebfe480012d2e2506a64acb2708b5fae"
+		}
+	],
+	"fragments": [
+		{
+			"typeCondition": "Repository",
+			"possibleTypes": [
+				"Repository"
+			],
+			"fragmentName": "RepoItemQuery",
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"source": "fragment RepoItemQuery on Repository {\n  __typename\n  nameWithOwner\n  url\n  viewerHasStarred\n  id\n}",
+			"fields": [
+				{
+					"responseName": "__typename",
+					"fieldName": "__typename",
+					"type": "String!",
+					"isConditional": false
+				},
+				{
+					"responseName": "nameWithOwner",
+					"fieldName": "nameWithOwner",
+					"type": "String!",
+					"isConditional": false,
+					"description": "The repository's name with owner.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"responseName": "url",
+					"fieldName": "url",
+					"type": "URI!",
+					"isConditional": false,
+					"description": "The HTTP URL for this repository",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"responseName": "viewerHasStarred",
+					"fieldName": "viewerHasStarred",
+					"type": "Boolean!",
+					"isConditional": false,
+					"description": "Returns a boolean indicating whether the viewing user has starred this starrable.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"responseName": "id",
+					"fieldName": "id",
+					"type": "ID!",
+					"isConditional": false,
+					"isDeprecated": false,
+					"deprecationReason": null
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": []
+		},
+		{
+			"typeCondition": "User",
+			"possibleTypes": [
+				"User"
+			],
+			"fragmentName": "UserListItemQuery",
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"source": "fragment UserListItemQuery on User {\n  __typename\n  login\n  avatarUrl\n}",
+			"fields": [
+				{
+					"responseName": "__typename",
+					"fieldName": "__typename",
+					"type": "String!",
+					"isConditional": false
+				},
+				{
+					"responseName": "login",
+					"fieldName": "login",
+					"type": "String!",
+					"isConditional": false,
+					"description": "The username used to login.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"responseName": "avatarUrl",
+					"fieldName": "avatarUrl",
+					"type": "URI!",
+					"isConditional": false,
+					"description": "A URL pointing to the user's public avatar.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": []
+		},
+		{
+			"typeCondition": "PageInfo",
+			"possibleTypes": [
+				"PageInfo"
+			],
+			"fragmentName": "PageInfoQuery",
+			"filePath": "/home/charlie/cs242-fa17/Assignment3.2/app/src/main/graphql/queries.graphql",
+			"source": "fragment PageInfoQuery on PageInfo {\n  __typename\n  hasNextPage\n  endCursor\n}",
+			"fields": [
+				{
+					"responseName": "__typename",
+					"fieldName": "__typename",
+					"type": "String!",
+					"isConditional": false
+				},
+				{
+					"responseName": "hasNextPage",
+					"fieldName": "hasNextPage",
+					"type": "Boolean!",
+					"isConditional": false,
+					"description": "When paginating forwards, are there more items?",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"responseName": "endCursor",
+					"fieldName": "endCursor",
+					"type": "String",
+					"isConditional": false,
+					"description": "When paginating forwards, the cursor to continue.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				}
+			],
+			"fragmentSpreads": [],
+			"inlineFragments": []
+		}
+	],
+	"typesUsed": [
+		{
+			"kind": "ScalarType",
+			"name": "URI",
+			"description": "An RFC 3986, RFC 3987, and RFC 6570 (level 4) compliant URI string."
+		},
+		{
+			"kind": "InputObjectType",
+			"name": "RepositoryOrder",
+			"description": "Ordering options for repository connections",
+			"fields": [
+				{
+					"name": "field",
+					"type": "RepositoryOrderField!",
+					"description": "The field to order repositories by."
+				},
+				{
+					"name": "direction",
+					"type": "OrderDirection!",
+					"description": "The ordering direction."
+				}
+			]
+		},
+		{
+			"kind": "EnumType",
+			"name": "RepositoryOrderField",
+			"description": "Properties by which repository connections can be ordered.",
+			"values": [
+				{
+					"name": "CREATED_AT",
+					"description": "Order repositories by creation time",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"name": "UPDATED_AT",
+					"description": "Order repositories by update time",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"name": "PUSHED_AT",
+					"description": "Order repositories by push time",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"name": "NAME",
+					"description": "Order repositories by name",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"name": "STARGAZERS",
+					"description": "Order repositories by number of stargazers",
+					"isDeprecated": false,
+					"deprecationReason": null
+				}
+			]
+		},
+		{
+			"kind": "EnumType",
+			"name": "OrderDirection",
+			"description": "Possible directions in which to order a list of items when provided an `orderBy` argument.",
+			"values": [
+				{
+					"name": "ASC",
+					"description": "Specifies an ascending order for a given `orderBy` argument.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"name": "DESC",
+					"description": "Specifies a descending order for a given `orderBy` argument.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				}
+			]
+		},
+		{
+			"kind": "EnumType",
+			"name": "SearchType",
+			"description": "Represents the individual results of a search.",
+			"values": [
+				{
+					"name": "ISSUE",
+					"description": "Returns results matching issues in repositories.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"name": "REPOSITORY",
+					"description": "Returns results matching repositories.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				},
+				{
+					"name": "USER",
+					"description": "Returns results matching users on GitHub.",
+					"isDeprecated": false,
+					"deprecationReason": null
+				}
+			]
+		}
+	]
+}
