@@ -1,0 +1,4 @@
+#Mon Nov 06 17:46:16 CST 2017
+base.0=/home/charlie/cs242-fa17/Assignment3.2/app/build/intermediates/transforms/dexMerger/debug/16
+renamed.0=classes.dex
+file.0=/home/charlie/cs242-fa17/Assignment3.2/app/build/intermediates/transforms/dexMerger/debug/16/classes.dex

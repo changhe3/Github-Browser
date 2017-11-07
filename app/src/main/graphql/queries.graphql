@@ -1,0 +1,143 @@
+query User($login: String!){
+  user(login: $login) {
+    name
+    avatarUrl
+    login
+    bio
+    email
+    followers {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+    repositories {
+      totalCount
+    }
+  }
+}
+
+query Repos(
+  $login: String!,
+  $first: Int!,
+  $after: String,
+  $order: RepositoryOrder) {
+  user(login: $login) {
+    repositories(first: $first, after: $after, orderBy: $order) {
+      totalCount
+      pageInfo {
+        ...PageInfoQuery
+      }
+      nodes {
+        ...RepoItemQuery
+      }
+    }
+  }
+}
+
+query Followers($login: String!, $first: Int!, $after: String) {
+  user(login: $login) {
+    followers(first: $first, after: $after) {
+      pageInfo {
+        ...PageInfoQuery
+      }
+      nodes {
+        ...UserListItemQuery
+      }
+    }
+  }
+}
+
+query Following($login: String!, $first: Int!, $after: String) {
+  user(login: $login) {
+    following(first: $first, after: $after) {
+      pageInfo {
+        ...PageInfoQuery
+      }
+      nodes {
+        ...UserListItemQuery
+      }
+    }
+  }
+}
+
+query Search($str: String!, $first: Int!, $after: String, $type: SearchType!) {
+  search(query: $str, first: $first, after: $after, type: $type) {
+    pageInfo {
+      ...PageInfoQuery
+    }
+    nodes {
+      ... on Repository {
+        ...RepoItemQuery
+      }
+      ... on User {
+        ...UserListItemQuery
+      }
+    }
+  }
+}
+
+query Language($repoId: ID!) {
+  node(id: $repoId) {
+    ... on Repository {
+      languages(first: 10, orderBy: {
+        field: SIZE,
+        direction: DESC
+      }) {
+        totalSize
+        edges {
+          size
+          node {
+            color
+            name
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment RepoItemQuery on Repository {
+  nameWithOwner
+  url
+  viewerHasStarred
+  id
+}
+
+fragment UserListItemQuery on User {
+  login
+  avatarUrl
+}
+
+fragment PageInfoQuery on PageInfo {
+  hasNextPage
+  endCursor
+}
+
+query Viewer{
+  viewer {
+    login
+  }
+}
+
+mutation addStar($clientId: String!, $starrableId: ID!) {
+  addStar(input: {
+    clientMutationId: $clientId,
+    starrableId: $starrableId
+  }) {
+    starrable {
+      viewerHasStarred
+    }
+  }
+}
+
+mutation removeStar($clientId: String!, $starrableId: ID!) {
+  removeStar(input: {
+    clientMutationId: $clientId,
+    starrableId: $starrableId
+  }) {
+    starrable {
+      viewerHasStarred
+    }
+  }
+}
